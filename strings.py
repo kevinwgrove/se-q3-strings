@@ -28,9 +28,10 @@ __author__ = "Kevin Grove"
 
 
 def donuts(count):
-    if count > 9:
+    if count >= 10:
         return 'Number of donuts: many'
-    return count
+    else:
+        return 'Number of donuts: ' + str(count)
 
 
 # B. both_ends
@@ -43,8 +44,10 @@ def donuts(count):
 
 
 def both_ends(s):
-    # your code here
-    return
+    if len(s) < 2:
+        return ''
+    else:
+        return s[:2] + s[-2:]
 
 
 # C. fix_start
@@ -59,8 +62,7 @@ def both_ends(s):
 
 
 def fix_start(s):
-    # your code here
-    return
+    return s[0] + s[1:].replace(s[0], '*')
 
 
 # D. mix_up
@@ -74,8 +76,7 @@ def fix_start(s):
 
 
 def mix_up(a, b):
-    # your code here
-    return
+    return b[0:2] + a[2:] + ' ' + a[0:2] + b[2:]
 
 
 # E. verbing
@@ -87,8 +88,13 @@ def mix_up(a, b):
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) < 3:
+        return s
+    else:
+        if s[-3:] == 'ing':
+            return s + 'ly'
+        else:
+            return s + 'ing'
 
 
 # F. not_bad
@@ -101,8 +107,14 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    if s.find('not') == -1 or s.find('bad') == -1:
+        return s
+    n = s.index('not')
+    b = s.index('bad')
+    if n < b:
+        return s.replace(s[n: b + 3], 'good')
+    else:
+        return s
 
 
 # G. front_back
@@ -116,5 +128,19 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    if len(a) % 2 == 0 and len(b) % 2 == 0:
+        ad = len(a) // 2
+        bd = len(b) // 2
+        return a[0: ad] + b[0: bd] + a[ad:] + b[bd:]
+    elif len(a) % 2 == 0:
+        ad = len(a) // 2
+        bd = (len(b) // 2) + 1
+        return a[0: ad] + b[0: bd] + a[ad:] + b[bd:]
+    elif len(b) % 2 == 0:
+        ad = (len(a) // 2) + 1
+        bd = len(b) // 2
+        return a[0: ad] + b[0: bd] + a[ad:] + b[bd:]
+    else:
+        ad = (len(a) // 2) + 1
+        bd = (len(b) // 2) + 1
+        return a[0: ad] + b[0: bd] + a[ad:] + b[bd:]
