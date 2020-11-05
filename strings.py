@@ -15,7 +15,7 @@ Kenzie assignment: Strings!
 
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "Kevin Grove"
+__author__ = "Kevin Grove (thanks to Cesar for simplifying my mix_up function)"
 
 # A. donuts
 # Given an int count of a number of donuts, return a string
